@@ -1,8 +1,14 @@
 class Atm:
     # Constructor
     def __init__(self):
-        self.pin = ""
-        self.balance = 0
+
+        # Nothing in python is truly private
+        
+        # __ double underscore is used before any variable name to make it private
+        # unlike java or c++ there is no private keyword
+        # similarly we can use __ before a method name
+        self.__pin = ""
+        self.__balance = 0
 
         self.menu()
     
@@ -27,15 +33,15 @@ class Atm:
             print("Bye")
             
     def create_pin(self):
-        self.pin = input("Enter your PIN")
+        self.__pin = input("Enter your PIN")
         print("PIN set successfully")
         self.menu()
 
     def deposit(self):
         temp = input("Enter your PIN")
-        if temp == self.pin:
+        if temp == self.__pin:
             amount = int(input("Enter the amount"))
-            self.balance = self.balance + amount
+            self.__balance = self.__balance + amount
             print("Deposit successful")
         else:
             print("Invalid PIN")
@@ -44,10 +50,10 @@ class Atm:
         
     def withdraw(self):
         temp = input("Enter your PIN")
-        if temp == self.pin:
+        if temp == self.__pin:
             amount = int(input("Enter the amount"))
-            if amount <= self.balance:
-                self.balance = self.balance - amount
+            if amount <= self.__balance:
+                self.__balance = self.__balance - amount
                 print("Withdraw successful")
             else:
                 print("Insufficient Fund")
@@ -58,10 +64,10 @@ class Atm:
 
     def check_balance(self):
         temp = input("Enter the PIN")
-        if temp == self.pin:
-            print(self.balance)
+        if temp == self.__pin:
+            print(self.__balance)
         else:
             print("Invalid PIN")
         self.menu()
 
-atm = Atm()
+atm = Atm() 
