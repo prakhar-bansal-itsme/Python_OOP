@@ -1,4 +1,8 @@
 class Atm:
+
+    # static variable, double underscore for private
+    __counter = 1
+
     # Constructor
     def __init__(self):
 
@@ -9,8 +13,19 @@ class Atm:
         # similarly we can use __ before a method name
         self.__pin = ""
         self.__balance = 0
+        self.sno = Atm.__counter
+        Atm.__counter = Atm.__counter + 1
 
         self.menu()
+
+    def get_counter():
+        return Atm.__counter
+    
+    def set_counter(new):
+        if type(new) == int:
+            Atm.__counter = new
+        else:
+            print("Type not valid, Please enter an Integer")
 
     def get_pin(self):
         return self.__pin
