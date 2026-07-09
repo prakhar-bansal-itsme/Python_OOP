@@ -1,6 +1,7 @@
 class Fraction:
 
     def __init__(self, n, d):   # n = numerator, d = denominator
+
         self.num = n
         self.den = d
     

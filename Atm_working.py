@@ -3,7 +3,7 @@ class Atm:
     def __init__(self):
 
         # Nothing in python is truly private
-        
+
         # __ double underscore is used before any variable name to make it private
         # unlike java or c++ there is no private keyword
         # similarly we can use __ before a method name
@@ -11,6 +11,13 @@ class Atm:
         self.__balance = 0
 
         self.menu()
+
+    def get_pin(self):
+        return self.__pin
+    
+    def set_pin(self, new_pin):
+        self.__pin = new_pin
+        print("PIN changed")
     
     def menu(self):
         user_input = input("""
